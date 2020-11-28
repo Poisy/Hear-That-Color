@@ -97,9 +97,8 @@ footer {
 }
 
 #output-name-text {
-    margin-left: auto; 
-    margin-right: auto; 
-    padding: 2.5% 0 0 0;
+    height: 100px;
+    margin: 50px;
     font-size: 45px;
     font-weight: bold;
     text-shadow: 4px 4px 4px #000000;
@@ -125,6 +124,28 @@ footer {
     font-size: 25px;
 }
 
+#info-menu {
+    background-color: rgba(0, 0, 0, 0.438);
+    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+    margin: 1vmax;
+}
+
+.info-text {
+    color: #FFFFFF;
+    text-align: start;
+    padding: 1.5vmax;
+    font-size: large;
+}
+
+.info-question {
+    font-size: 25px;
+    font-weight: bold;
+    filter: invert(100%);
+}
+
+#col-breaker {
+    display: none;
+}
 
 @media screen and (max-width: 700px) {
     #settings-menu {
@@ -139,6 +160,10 @@ footer {
         display: block;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    #col-breaker {
+        display: inline;
     }
 }
 
