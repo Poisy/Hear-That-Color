@@ -1,9 +1,10 @@
-// All functions are defined in the "functions.js" file
+// ----------------All functions are defined in the "functions.js" file--------------------------
 
-import KellyColorPicker from "./html5kellycolorpicker.js";
 import * as functions from "./functions.js";
+import KellyColorPicker from "./html5kellycolorpicker.js";
 
 
+// Used objects from the HTML file
 var hearButton = document.getElementById("hear-button");
 var volumeRange = document.getElementById("volume-range");
 var outputHex = document.getElementById("output-hex-text");
@@ -27,10 +28,12 @@ var colorPicker = new KellyColorPicker({
 });
 
 
+// Functions called at runtime
 functions.PopulateVoices();
 functions.ChangeBG(colorPicker.getCurColorHex())
 
 
+// Events added to the HTML elements
 hearButton.onclick = () => functions.Say(colorPicker.getCurColorHex(), volumeRange.value/10, voiceList, outputName);
 outputName.onclick = () => functions.CopyOutputToClipboard(outputName);
 settingsButton.onclick = () => {

@@ -2,7 +2,7 @@
 @import url("./../bootstrap/css/bootstrap.css");
 
 body {
-    background: url("./../data/background.png") no-repeat center center fixed,
+    background: url("./../data/images/background.png") no-repeat center center fixed,
     linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
     background-size: cover;
     -webkit-background-size: cover;
@@ -95,6 +95,7 @@ p, a {
 }
 
 #settings-icon {
+    content: url("./../data/images/settings_icon.png");
     height: 50px;
     width: 50px;
     padding: 10px;
