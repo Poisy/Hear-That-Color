@@ -17,9 +17,21 @@ p, a {
     text-shadow: 1px 1px 1px #000000;
 }
 
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.404);
+    color: white;
+    text-align: center;
+    line-height: 1.5;
+}
+
 #header-text {
     font-size: 5vmax;
-    padding: 5% 0 0 0;
+    padding: 2.5% 0 0 0;
 }
 
 #main-menu {

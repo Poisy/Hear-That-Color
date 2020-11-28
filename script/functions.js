@@ -1,5 +1,7 @@
 import * as _ntc from "./ntc.js";
 
+var voices;
+
 /** Changes the background color of the page body and all elements with class "auto-color" */
 function ChangeBG(color) {
     document.body.style.backgroundColor = color;
@@ -9,9 +11,9 @@ function ChangeBG(color) {
 
 /** Makes the Browser to say the name of the selected Color 
  * @param  {String} color The color to change to
- * @param  {String} vol The volume of the voice
- * @param  {String} voiceList Select element which contains voices from the function PopulateVoices()
- * @param  {String} output The element which the name of the color will be displayed
+ * @param  {Number} vol The volume of the voice
+ * @param  {Selection} voiceList Select element which contains voices from the function PopulateVoices()
+ * @param  {Element} output The element which the name of the color will be displayed
 */
 function Say(color, vol, voiceList, output) {
     _ntc.ntc.init();
@@ -22,18 +24,20 @@ function Say(color, vol, voiceList, output) {
 
     ShowOutput(output, name, color);
 
-    let synth = window.speechSynthesis;
-    let voices = synth.getVoices();
-
     let toSpeak = new SpeechSynthesisUtterance(name);
     toSpeak.volume = vol;
-    let selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
-    voices.forEach((voice)=>{
-        if(voice.name === selectedVoiceName){
-            toSpeak.voice = voice;
-        }
-    });
-    synth.speak(toSpeak);
+    if (voiceList.selectedOptions.length > 0) {
+        let selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
+        voices.forEach((voice)=>{
+            if(voice.name === selectedVoiceName){
+                toSpeak.voice = voice;
+            }
+        });
+        speechSynthesis.speak(toSpeak);
+    }
+    else {
+        console.log("Your browser does not support our SpeechSynthesis");
+    }
     console.log(`{${name}} : {${color}}`);
 }
 
@@ -41,10 +45,15 @@ function Say(color, vol, voiceList, output) {
 /**Generates all available voices which depends on the Browser and the OS to a Select element
  * in the HTML with id "voice-list"*/
 function PopulateVoices() {
-    let synth = window.speechSynthesis;
-    let voices = synth.getVoices();
-    let voiceList = document.getElementById("voice-list");
+    voices = speechSynthesis.getVoices();
+    
+    if (!voices.length) {
+        speechSynthesis.onvoiceschanged = () => {
+            voices = speechSynthesis.getVoices();
+        }
+    }
 
+    let voiceList = document.getElementById("voice-list");
     let selectedIndex = voices.findIndex(voice => voice.name.includes("English"));
     voiceList.innerHTML = '';
     voices.forEach((voice)=>{

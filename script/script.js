@@ -30,6 +30,7 @@ var colorPicker = new KellyColorPicker({
 
 // Functions called at runtime
 functions.PopulateVoices();
+setTimeout(() => functions.PopulateVoices(), 500)
 functions.ChangeBG(colorPicker.getCurColorHex())
 
 

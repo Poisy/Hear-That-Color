@@ -6,37 +6,46 @@
     <link rel="icon" href="./data/images/icon.svg">
     <link rel="stylesheet" href="./css/style.css">
     <script type="module" src="./script/script.js" async></script>
-    <title>Hear your Color</title>
+    <title>Hear that Color</title>
 </head>
 <body>
-    <img id="settings-icon" alt="Settings">
-    <div id="settings-menu" class="test-col">
-        <section>
-            <p id="settings-title">Settings</p>
-        </section>
-        <section>
-            <p>Voice</p>
-            <select id="voice-list" class="custom-select custom-select-sm"></select>
-        </section>
-        <section>
-            <p>Volume</p>
-            <input type="range" id="volume-range" class="custom-range" min="0" max="10" value="5">
-        </section>
-    </div>
-    <div class="test-row row no-gutters">
-        <p id="header-text" class="test-col col-sm auto-color">Choose your color</p>
-    </div>
-    <div class="test-row row no-gutters justify-content-center">
-        <div id="main-menu" class="test-col col">
-            <canvas id="picker"></canvas>
-            <input id="output-hex-text" class="auto-color"></input>
-            <a id="hear-button">Hear</a>
+    <aside id="settings">
+        <img id="settings-icon" alt="Settings">
+        <div id="settings-menu" class="test-col">
+            <section>
+                <p id="settings-title">Settings</p>
+            </section>
+            <section>
+                <p>Voice</p>
+                <select id="voice-list" class="custom-select custom-select-sm"></select>
+            </section>
+            <section>
+                <p>Volume</p>
+                <input type="range" id="volume-range" class="custom-range" min="0" max="10" value="5">
+            </section>
         </div>
-    </div>
-    <div class="test-row row no-gutters justify-content-center">
-        <div class="test-col col">
-            <p id="output-name-text"></p>
-        </div>
-    </div>
+    </aside>
+    <header class="row no-gutters test-row">
+        <p id="header-text" class="col-sm auto-color test-col">Choose your color</p>
+    </header>
+    <main id="main-content">
+        <section class="row no-gutters justify-content-center test-row">
+            <div id="main-menu" class="col test-col">
+                <canvas id="picker"></canvas>
+                <input id="output-hex-text" class="auto-color"></input>
+                <a id="hear-button">Hear</a>
+            </div>
+        </section>
+        <section class="row no-gutters justify-content-center test-row ">
+            <div class="col test-col">
+                <p id="output-name-text"></p>
+            </div>
+        </section>
+        <section id="" class="row no-gutters justify-content-center test-row">
+            <div class="col">
+
+            </div>
+        </section>
+    </main>
 </body>
 </html>
