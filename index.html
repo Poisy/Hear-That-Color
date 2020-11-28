@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./data/icon.svg">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="module" src="./script/script.js" async></script>
+    <title>Hear your Color</title>
+</head>
+<body>
+    <img id="settings-icon" src="./data/settings_icon.png" alt="Settings">
+    <div id="settings-menu" class="test-col">
+        <section>
+            <p id="settings-title">Settings</p>
+        </section>
+        <section>
+            <p>Voice</p>
+            <select id="voice-list" class="custom-select custom-select-sm"></select>
+        </section>
+        <section>
+            <p>Volume</p>
+            <input type="range" id="volume-range" class="custom-range" min="0" max="10" value="5">
+        </section>
+    </div>
+    <div class="test-row row no-gutters">
+        <p id="header-text" class="test-col col-sm auto-color">Choose your color</p>
+    </div>
+    <div class="test-row row no-gutters justify-content-center">
+        <div id="main-menu" class="test-col col">
+            <canvas id="picker"></canvas>
+            <input id="output-hex-text" class="auto-color"></input>
+            <a id="hear-button">Hear</a>
+        </div>
+    </div>
+    <div class="test-row row no-gutters justify-content-center">
+        <div class="test-col col">
+            <p id="output-name-text"></p>
+        </div>
+    </div>
+    <script>
+        if (window.location.protocol == "file:") {
+            console.log("Error: Page is loaded from local file system.\n"
+             + "Please run the page from a Http\\s server!");
+        }
+    </script>
+</body>
+</html>

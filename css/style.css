@@ -1,0 +1,145 @@
+@import url("./animations.css");
+@import url("./../bootstrap/css/bootstrap.css");
+
+body {
+    background: url("./../data/background.png") no-repeat center center fixed,
+    linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    position: relative;
+}
+
+p, a { 
+    font-family:'Roboto',sans-serif;
+    text-align: center;
+    text-shadow: 1px 1px 1px #000000;
+}
+
+#header-text {
+    font-size: 5vmax;
+    padding: 5% 0 0 0;
+}
+
+#main-menu {
+    padding: 10px;
+}
+
+#settings-menu {
+    position: absolute;
+    right: 0px;
+    background-color: #00000050;
+    box-shadow: 0px 10px 13px -7px #000000, 13px 9px 9px 0px rgba(0,0,0,0);
+    z-index: 1;
+    overflow: hidden;
+    width: 0px;
+}
+
+#settings-menu *{
+    margin: 5px;
+    padding: 0 5% 0 5%;
+    max-width: 60vmin;
+}
+
+#hear-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #FFFFFF;
+    border-radius: 0.12em;
+    font-weight: 300;
+    font-size: 20px;
+    color: #FFFFFF;
+    transition: all 0.2s;
+}
+
+#hear-button:hover {
+    color:#000000;
+    background-color:#FFFFFF;
+    cursor: pointer;
+}
+
+#picker {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#output-hex-text {
+    font-size: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    background-color: transparent;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: 4px solid;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#output-name-text {
+    margin-left: auto; 
+    margin-right: auto; 
+    padding: 2.5% 0 0 0;
+    font-size: 45px;
+    font-weight: bold;
+    text-shadow: 4px 4px 4px #000000;
+    cursor: pointer;
+}
+
+#settings-icon {
+    height: 50px;
+    width: 50px;
+    padding: 10px;
+    cursor: pointer;
+    right: 0;
+    z-index: 2;
+    position: absolute;
+}
+
+#settings-icon:hover {
+    opacity: 50%;
+}
+
+#settings-title {
+    font-size: 25px;
+}
+
+
+@media screen and (max-width: 700px) {
+    #settings-menu {
+      left: 0px;
+      width: auto;
+      height: 0px;
+      display: block;
+      position: relative;
+    }
+
+    #settings-menu * {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* USE THIS FOR DEBUGING */
+
+.test-row {
+    border-width: 3px;
+    border-style: solid;
+    border-color: yellow;
+}
+
+
+.test-col {
+    border-width: 3px;
+    border-style: solid;
+    border-color: red;
+}

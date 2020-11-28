@@ -1,0 +1,70 @@
+.settings-show {
+    animation: settings-menu-ani-width-op 1s;
+    animation-fill-mode: forwards; 
+}
+
+.settings-hide {
+    animation: settings-menu-ani-width-end 1s;
+    animation-fill-mode: forwards; 
+}
+
+.output-name-text-show {
+    animation: output-name-fade-in 1s;
+    animation-fill-mode: forwards; 
+}
+
+.output-name-text-hide {
+    animation: output-name-move 2s, output-name-fade-out 2s, output-name-hide 2s;
+    animation-fill-mode: forwards; 
+}
+
+@keyframes settings-menu-ani-width-op {
+    from { width: 0vmin;  }
+    to { width: 40vmin; }
+}
+
+@keyframes settings-menu-ani-height-op {
+    from { height: 0vmin;  }
+    to { height: 50vmin; }
+}
+
+@keyframes settings-menu-ani-width-end {
+    from { width: 40vmin;  }
+    to { width: 0vmin; }
+}
+
+@keyframes settings-menu-ani-height-end {
+    from { height: 50vmin;  }
+    to { height: 0vmin; }
+}
+
+@keyframes output-name-move {
+    from { margin-left: 0px; }
+    to { margin-left: 30vmin; }
+}
+
+@keyframes output-name-fade-out {
+    from { opacity: 100%; }
+    to { opacity: 0%; }
+}
+
+@keyframes output-name-fade-in {
+    from { opacity: 0%; }
+    to { opacity: 100%; }
+}
+
+@keyframes output-name-hide {
+    to { visibility: hidden }
+}
+
+@media screen and (max-width: 700px) {
+    .settings-show {
+        animation: settings-menu-ani-height-op 1s;
+        animation-fill-mode: forwards; 
+    }
+
+    .settings-hide {
+        animation: settings-menu-ani-height-end 1s;
+        animation-fill-mode: forwards; 
+    }
+}
