@@ -16,13 +16,17 @@ function ChangeBG(color) {
  * @param  {Element} output The element which the name of the color will be displayed
 */
 function Say(color, vol, voiceList, output) {
-    _ntc.ntc.init();
-    let match = _ntc.ntc.name(color);
-    let name = match[1]; // This is the text string for the name of the match
+    if (!_ntc.isInit) {
+        _ntc.ntc.init();
+    }
+
+    var match = _ntc.ntc.name(color);
+    var name = match[1]; // This is the text string for the name of the match
     //rgb = n_match[0]; // This is the RGB value of the closest matching color
     //exactmatch = n_match[2]; // True if exact color match, False if close-match
 
     ShowOutput(output, name, color);
+    ChangeBG(color);
 
     let toSpeak = new SpeechSynthesisUtterance(name);
     toSpeak.volume = vol;
@@ -39,6 +43,23 @@ function Say(color, vol, voiceList, output) {
         console.log("Your browser does not support our SpeechSynthesis");
     }
     console.log(`{${name}} : {${color}}`);
+}
+
+
+/** Returns the Hex code of the color or empty string if there isn't such color */
+function IsValidColor(color) {
+    if (!_ntc.isInit) {
+        _ntc.ntc.init();
+    }
+
+    var isColor = _ntc.ntc.toRgb(color);
+
+    if (isColor != "None") {
+        return "#" + isColor;
+    }
+    else {
+        return "";
+    }
 }
 
 
@@ -66,7 +87,6 @@ function PopulateVoices() {
 
     voiceList.selectedIndex = selectedIndex < 0 ? 0 : selectedIndex;
 }
-
 
 
 var isAnimationRunning = false;
@@ -109,4 +129,31 @@ function CopyOutputToClipboard(element) {
     document.body.removeChild(temp);
 }
 
-export {ChangeBG, Say, PopulateVoices, InvertColor, ChangeOutput, CopyOutputToClipboard};
+
+/** Call this function and it will auto type any letter or number pressed into the inputElement */
+function ActivateAutoTyping(inputElement, button) {
+    document.onkeydown = function(evt) {
+        evt = evt || window.event;
+        var charCode = evt.which || evt.keyCode;
+        var charStr = String.fromCharCode(charCode);
+    
+        switch (charCode) {
+            case 8:
+                inputElement.value = inputElement.value.slice(0, -1);
+                break;
+            case 13:
+                button.dispatchEvent(new Event("click"));
+                break;
+            default:
+                if (/[a-z0-9]/i.test(charStr) || charStr == " ") {
+                    inputElement.value = inputElement.value + charStr.toLowerCase();
+                    if (!evt.ctrlKey) {
+                        evt.preventDefault();
+                    }
+                }
+        }
+     };
+}
+
+
+export {ChangeBG, Say, PopulateVoices, InvertColor, ChangeOutput, CopyOutputToClipboard, IsValidColor, ActivateAutoTyping};

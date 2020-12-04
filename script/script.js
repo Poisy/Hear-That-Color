@@ -5,6 +5,7 @@ import KellyColorPicker from "./html5kellycolorpicker.js";
 
 
 // Used objects from the HTML file
+var headerText = document.getElementById("header-text");
 var hearButton = document.getElementById("hear-button");
 var volumeRange = document.getElementById("volume-range");
 var outputHex = document.getElementById("output-hex-text");
@@ -32,11 +33,19 @@ var colorPicker = new KellyColorPicker({
 functions.PopulateVoices();
 setTimeout(() => functions.PopulateVoices(), 500)
 functions.ChangeBG(colorPicker.getCurColorHex())
+functions.ActivateAutoTyping(headerText, hearButton);
 
 
 // Events added to the HTML elements
-hearButton.onclick = () => functions.Say(colorPicker.getCurColorHex(), volumeRange.value/10, voiceList, outputName);
 outputName.onclick = () => functions.CopyOutputToClipboard(outputName);
+
+hearButton.onclick = () => {
+    var color = functions.IsValidColor(headerText.value);
+    if (color) colorPicker.setColor(color);
+    headerText.value = "";
+    functions.Say(colorPicker.getCurColorHex(), volumeRange.value/10, voiceList, outputName);
+};
+
 settingsButton.onclick = () => {
     if (settings.classList.contains("settings-show")) settings.classList.toggle("settings-hide");
     else settings.classList.toggle("settings-show");

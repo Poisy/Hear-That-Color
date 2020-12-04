@@ -5,6 +5,7 @@
 
 
 var names;
+export var isInit = false;
 
 readJson("./data/colors.json");
 
@@ -19,6 +20,7 @@ export var ntc = {
         hsl = ntc.hsl(color);
         names[i].push(rgb[0], rgb[1], rgb[2], hsl[0], hsl[1], hsl[2]);
       }
+      isInit = true;
     },
     
     /**
@@ -90,6 +92,26 @@ export var ntc = {
   
     rgb: function(color) {
       return [parseInt('0x' + color.substring(1, 3)), parseInt('0x' + color.substring(3, 5)),  parseInt('0x' + color.substring(5, 7))];
+    },
+
+    toRgb: function(color) {
+      const words = color.split(" ");
+      
+      if (words[0]) {
+        for (let i = 0; i < words.length; i++) {
+          words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+        }
+        
+        var new_color = words.join(" ");
+  
+        for (var i = 0; i < names.length; i++) {
+          if (names[i][1] == new_color) {
+            return names[i][0].toLowerCase();
+          }
+        }
+      }
+
+      return "None";
     }
 }
 

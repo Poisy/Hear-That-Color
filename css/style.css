@@ -31,7 +31,10 @@ footer {
 
 #header-text {
     padding: 2.5vmin;
-    font-size: 5vmax;
+    font-size: 6.5vmax;
+    background-color: transparent;
+    border-style: none;
+    text-align: center;
 }
 
 #main-menu {
@@ -158,6 +161,10 @@ footer {
 
 #col-breaker {
     display: none;
+}
+
+.warning-text {
+    color: red;
 }
 
 @media screen and (max-width: 700px) {
