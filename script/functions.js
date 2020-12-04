@@ -37,6 +37,7 @@ function Say(color, vol, voiceList, output) {
                 toSpeak.voice = voice;
             }
         });
+        speechSynthesis.cancel();
         speechSynthesis.speak(toSpeak);
     }
     else {
