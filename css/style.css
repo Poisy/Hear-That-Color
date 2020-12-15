@@ -1,5 +1,6 @@
 @import url("./animations.css");
 @import url("./../bootstrap/css/bootstrap.css");
+/*@import url("./debug.css"); /* Use only for debugging */
 
 body {
     background: url("./../data/images/background.png") no-repeat center center fixed,
@@ -185,18 +186,3 @@ footer {
         display: inline;
     }
 }
-
-/* USE THIS FOR DEBUGING */
-
-/* .test-row {
-    border-width: 3px;
-    border-style: solid;
-    border-color: yellow;
-}
-
-
-.test-col {
-    border-width: 3px;
-    border-style: solid;
-    border-color: red;
-} */

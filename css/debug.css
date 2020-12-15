@@ -1,0 +1,12 @@
+.test-row {
+    border-width: 3px;
+    border-style: solid;
+    border-color: yellow;
+}
+
+
+.test-col {
+    border-width: 3px;
+    border-style: solid;
+    border-color: red;
+}

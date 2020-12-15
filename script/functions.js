@@ -157,4 +157,6 @@ function ActivateAutoTyping(inputElement, button) {
 }
 
 
-export {ChangeBG, Say, PopulateVoices, InvertColor, ChangeOutput, CopyOutputToClipboard, IsValidColor, ActivateAutoTyping};
+
+export {ChangeBG, Say, PopulateVoices, InvertColor, ChangeOutput, CopyOutputToClipboard, 
+    IsValidColor, ActivateAutoTyping};

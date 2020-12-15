@@ -1,0 +1,27 @@
+@import url("./../bootstrap/css/bootstrap.css");
+/*@import url("./debug.css"); /* Use only for debugging */
+
+main {
+    padding: 5%;
+}
+
+.header-error {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.image-error {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;   
+}
+
+#col-breaker {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    #col-breaker {
+        display: inline;
+    }
+}
